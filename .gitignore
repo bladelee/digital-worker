@@ -1,6 +1,36 @@
+# Dependencies
 node_modules/
+
+# OpenClaw internal
 .openclaw/
 .clawhub/
-*.log
+
+# Environment files
 .env
 .env.*
+
+# Logs
+*.log
+
+# Root level markdown files (personal notes)
+/*.md
+
+# Memory directory
+memory/
+
+# Skills directory (personal skills)
+skills/
+
+# Build outputs
+dist/
+*.tar.gz
+
+# Binary files (Mattermost plugins)
+**/server/dist/plugin-*
+**/dist/package/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
