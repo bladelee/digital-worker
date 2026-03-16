@@ -1,0 +1,6 @@
+node_modules/
+.openclaw/
+.clawhub/
+*.log
+.env
+.env.*

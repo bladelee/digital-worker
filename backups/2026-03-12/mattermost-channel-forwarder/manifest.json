@@ -1,0 +1,12 @@
+{
+  "id": "com.openclaw.bot-channel-forwarder",
+  "name": "Bot Channel Forwarder",
+  "description": "Forward channel messages to bot users via WebSocket for OpenClaw integration",
+  "version": "1.0.1",
+  "min_server_version": "9.0.0",
+  "server": {
+    "executables": {
+      "linux-amd64": "server/dist/plugin-linux-amd64"
+    }
+  }
+}

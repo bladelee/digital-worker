@@ -1,0 +1,41 @@
+--- a/extensions/mattermost/src/mattermost/monitor-websocket.ts
++++ b/extensions/mattermost/src/mattermost/monitor-websocket.ts
+@@ -164,6 +164,32 @@ export function createMattermostConnectOnce(
+             return;
+           }
+ 
++          // Handle custom bot_channel_message event from mattermost-channel-forwarder plugin
++          if (payload.event === "bot_channel_message") {
++            const data = payload.data;
++            if (!data) {
++              return;
++            }
++            const post: MattermostPost = {
++              id: String(data.post_id ?? ""),
++              create_at: Number(data.create_at ?? 0),
++              update_at: Number(data.update_at ?? 0),
++              edit_at: Number(data.edit_at ?? 0),
++              delete_at: Number(data.delete_at ?? 0),
++              is_pinned: Boolean(data.is_pinned),
++              user_id: String(data.user_id ?? ""),
++              channel_id: String(data.channel_id ?? ""),
++              root_id: String(data.root_id ?? ""),
++              parent_id: String(data.parent_id ?? ""),
++              original_id: String(data.original_id ?? ""),
++              message: String(data.message ?? ""),
++              type: String(data.type ?? ""),
++              props: data.props as Record<string, unknown>,
++              hashtags: String(data.hashtags ?? ""),
++              file_ids: data.file_ids as string[],
++            };
++            try {
++              await opts.onPosted(post, payload);
++            } catch (err) {
++              opts.runtime.error?.(`mattermost bot_channel_message handler failed: ${String(err)}`);
++            }
++            return;
++          }
++
+           if (payload.event !== "posted") {
+             return;
+           }

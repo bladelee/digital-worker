@@ -1,0 +1,36 @@
+.digital-worker-sidebar {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 4px 8px;
+  transition: background-color 0.2s;
+}
+
+.digital-worker-sidebar:hover {
+  background-color: rgba(var(--sidebar-text-rgb), 0.08);
+}
+
+.digital-worker-sidebar.active {
+  background-color: rgba(var(--sidebar-text-rgb), 0.12);
+}
+
+.sidebar-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.sidebar-icon .icon-robot::before {
+  content: "🤖";
+  font-size: 20px;
+}
+
+.sidebar-title {
+  font-size: 14px;
+  font-weight: 500;
+}

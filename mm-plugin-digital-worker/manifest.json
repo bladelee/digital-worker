@@ -1,0 +1,28 @@
+{
+  "id": "com.openclaw.digital-worker",
+  "name": "数字员工",
+  "description": "在 Mattermost 中管理数字员工助手",
+  "version": "1.0.4",
+  "min_server_version": "9.0.0",
+  "server": {
+    "executables": {
+      "linux-amd64": "server/dist/plugin-linux-amd64"
+    }
+  },
+  "webapp": {
+    "bundle_path": "webapp/dist/main.js"
+  },
+  "settings_schema": {
+    "header": "配置数字员工平台连接",
+    "footer": "",
+    "settings": [
+      {
+        "key": "PlatformAPIUrl",
+        "display_name": "平台 API 地址",
+        "type": "text",
+        "default": "http://localhost:3000",
+        "help_text": "数字员工平台后端 API 地址"
+      }
+    ]
+  }
+}
